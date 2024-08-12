@@ -1,200 +1,316 @@
 ---
 import DashboardLayout from "@layouts/DashboardLayout.astro";
+
+const asociation = [
+  { name: "American Chamber", abbr: "AMCHAM" },
+  { name: "Asociación de Fabricantes de Muebles de Jalisco", abbr: "AFAMJAL" },
+  {
+    name: "Asociación de Parques Industriales del Estado de Jalisco",
+    abbr: "APIEJ",
+  },
+  {
+    name: "Asociación Latinoamericana de Relaciones Públicas",
+    abbr: "ALARP México",
+  },
+  { name: "Asociación Mexicana de Hidráulica", abbr: "AMH" },
+  {
+    name: "Asociación Mexicana de Mujeres Jefas de Empresas de Zapopan",
+    abbr: "AMMJE Zapopan",
+  },
+  {
+    name: "Asociación Mexicana de Profesionales Inmobiliarios de Guadalajara",
+    abbr: "AMPI",
+  },
+  { name: "Cámara Nacional de Autotransporte de Carga", abbr: "CANACAR" },
+  { name: "Cámara de la Industria Alimenticia de Jalisco", abbr: "CIAJ" },
+  {
+    name: "Cámara de la Industria del Calzado del Estado de Jalisco",
+    abbr: "CICEJ",
+  },
+  { name: "Cámara Mexicana de la Industria de la Construcción", abbr: "CMIC" },
+  {
+    name: "Cámara Nacional de Comercio, Servicio y Turismo de Tlaquepaque",
+    abbr: "CANACO Tlaquepaque",
+  },
+  { name: "Cámara Nacional de Empresas de Consultoría", abbr: "CNEC" },
+  {
+    name: "Cámara Nacional de la Industria de Artes Gráficas",
+    abbr: "CANAGRAF",
+  },
+  {
+    name: "Cámara Nacional de la Industria de Restaurantes y Alimentos Condimentados",
+    abbr: "CANIRAC",
+  },
+  {
+    name: "Cámara Nacional de la Industria Electrónica, de Telecomunicaciones y Tecnología de la Información",
+    abbr: "CANIETI",
+  },
+  { name: "Cámara Nacional de la Industria Maderera", abbr: "CANAINMA" },
+  { name: "Cámara Nacional de la Industria Tequilera", abbr: "CNIT" },
+  {
+    name: "Cámara Regional de la Industria de Curtiduría en Jalisco",
+    abbr: "CRIC",
+  },
+  {
+    name: "Cámara Regional de la Industria de Joyería y Platería",
+    abbr: "CRIJPEJ",
+  },
+  { name: "Cámara Textil de Occidente", abbr: "CTEXO" },
+  { name: "Colectivo de Ingenieros Jóvenes de Jalisco", abbr: "" },
+  { name: "Colegio de Arquitectos del Estado de Jalisco", abbr: "CAEJ" },
+  {
+    name: "Colegio de Contadores Públicos de Guadalajara, Jalisco",
+    abbr: "CCPG",
+  },
+  {
+    name: "Colegio de Ingenieros Civiles del Estado de Jalisco, A.C.",
+    abbr: "CICEJ",
+  },
+  { name: "Consejo Coordinador Industrial Altos Sur", abbr: "CCIAS" },
+  {
+    name: "Consejo de Empresarios en Tecnología, Innovación y Comunicaciones",
+    abbr: "CETIC",
+  },
+  { name: "Consejo Empresarial de Jalisco", abbr: "CEMJAL" },
+  { name: "Cámara Regional de la Industria del Hule y Latex", abbr: "CIHUL" },
+  {
+    name: "Consejo Regional de la Industria Restaurantera y Gastronómica",
+    abbr: "CRIREG",
+  },
+  { name: "Corredor de Chapala", abbr: "Grupo SADI" },
+  { name: "Entrepreneur Organization", abbr: "EO" },
+  { name: "Global Shapers", abbr: "" },
+  {
+    name: "Instituto Mexicano de Mejores Prácticas Corporativas, A.C.",
+    abbr: "IMMPC",
+  },
+  {
+    name: "Organización Latinoamericana de Agroempresas de Jalisco",
+    abbr: "OLAJ",
+  },
+  { name: "Unión de Comerciantes de Mercado de Abastos", abbr: "UCMA" },
+  { name: "Unión Social de Empresarios de México", abbr: "USEM" },
+];
 ---
 
 <DashboardLayout title="Agregar miembro al organigrama | CCJEJ">
-  <div class="lg:col-span-9">
-    <!-- Profile section -->
-    <div class="py-6">
-      <div>
-        <h2 class="text-lg font-medium leading-6 text-gray-900">Profile</h2>
-        <p class="mt-1 text-sm text-gray-500">
-          This information will be displayed publicly so be careful what you
-          share.
-        </p>
-      </div>
+  <div class="py-3">
+    <div>
+      <h2 class="text-lg font-medium leading-6 text-gray-900">
+        Agregar puesto en el organigrama
+      </h2>
+      <p class="mt-1 text-sm text-gray-500">
+        Completa los campos para agregar un puesto en el organigrama.
+      </p>
+    </div>
 
-      <div class="mt-6 flex flex-col lg:flex-row">
-        <div class="flex-grow space-y-6">
-          <div>
-            <label
-              for="username"
-              class="block text-sm font-medium leading-6 text-gray-900"
-              >Username</label
+    <div class="mt-6">
+      <div class="mt-6 grid grid-cols-12 gap-6">
+        <div class="col-span-12 sm:col-span-2">
+          <div class="mt-6 flex-grow lg:mt-0 lg:flex-shrink-0 lg:flex-grow-0">
+            <p
+              class="text-sm font-medium leading-6 text-gray-900"
+              aria-hidden="true"
             >
-            <div class="mt-2 flex rounded-md shadow-sm">
-              <span
-                class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 px-3 text-gray-500 sm:text-sm"
-                >workcation.com/</span
+              Foto de perfil
+            </p>
+            <div class="mt-2 lg:hidden">
+              <div class="flex items-center">
+                <div
+                  class="inline-block h-12 w-12 flex-shrink-0 overflow-hidden rounded-full"
+                  aria-hidden="true"
+                >
+                  <img
+                    class="h-full w-full rounded-full"
+                    src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
+                    alt=""
+                  />
+                </div>
+                <div class="relative">
+                  <input
+                    id="mobile-user-photo"
+                    name="user-photo"
+                    type="file"
+                    class="peer absolute h-full w-full rounded-md opacity-0"
+                  />
+                  <label
+                    for="mobile-user-photo"
+                    class="pointer-events-none block rounded-md px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 peer-hover:ring-gray-400 peer-focus:ring-2 peer-focus:ring-sky-500"
+                  >
+                    <span>Cambiar</span>
+                    <span class="sr-only"> user photo</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative hidden overflow-hidden rounded-full lg:block">
+              <img
+                class="relative h-full w-full rounded-full"
+                src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
+                alt=""
+              />
+              <label
+                for="desktop-user-photo"
+                class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100"
+              >
+                <span>Cambiar</span>
+                <span class="sr-only"> Foto de perfil</span>
+                <input
+                  type="file"
+                  id="desktop-user-photo"
+                  name="user-photo"
+                  class="absolute inset-0 h-full w-ful cursor-pointer rounded-md border-gray-300 opacity-0"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="col-span-12 sm:col-span-10">
+          <div class="grid grid-cols-10 gap-6">
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="first-name"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Nombre(s)</label
+              >
+              <select
+                name="first-name"
+                id="first-name"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+              >
+                <option>Persona #1</option>
+                <option>Persona #2</option>
+                <option>Persona #3</option>
+              </select>
+            </div>
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="last-name"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Apellido(s)</label
               >
               <input
                 type="text"
-                name="username"
-                id="username"
-                autocomplete="username"
-                class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-                value="deblewis"
+                name="last-name"
+                id="last-name"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
               />
             </div>
-          </div>
 
-          <div>
-            <label
-              for="about"
-              class="block text-sm font-medium leading-6 text-gray-900"
-              >About</label
-            >
-            <div class="mt-2">
-              <textarea
-                id="about"
-                name="about"
-                rows="3"
-                class="mt-1 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-              ></textarea>
-            </div>
-            <p class="mt-2 text-sm text-gray-500">
-              Brief description for your profile. URLs are hyperlinked.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="mt-6 flex-grow lg:ml-6 lg:mt-0 lg:flex-shrink-0 lg:flex-grow-0"
-        >
-          <p
-            class="text-sm font-medium leading-6 text-gray-900"
-            aria-hidden="true"
-          >
-            Photo
-          </p>
-          <div class="mt-2 lg:hidden">
-            <div class="flex items-center">
-              <div
-                class="inline-block h-12 w-12 flex-shrink-0 overflow-hidden rounded-full"
-                aria-hidden="true"
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="email"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Correo electrónico</label
               >
-                <img
-                  class="h-full w-full rounded-full"
-                  src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
-                  alt=""
-                />
-              </div>
-              <div class="relative ml-5">
-                <input
-                  id="mobile-user-photo"
-                  name="user-photo"
-                  type="file"
-                  class="peer absolute h-full w-full rounded-md opacity-0"
-                />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="phone"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Teléfono</label
+              >
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="linkedin-url"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >LinkedIn</label
+              >
+              <input
+                type="tel"
+                name="linkedin-url"
+                id="linkedin-url"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+              />
+            </div>
+
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="asociation"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Cámara o Asociación Empresarial a la que perteneces</label
+              >
+              <select
+                name="asociation"
+                id="asociation"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+              >
+                {
+                  asociation.map((item) => (
+                    <option value={item.abbr}>
+                      {item.name} - ({item.abbr})
+                    </option>
+                  ))
+                }
+              </select>
+            </div>
+
+            <div class="col-span-12 sm:col-span-5">
+              <label
+                for="position"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Puesto en el consejo</label
+              >
+              <select
+                name="position"
+                id="position"
+                class="mt-2 block w-full rounded-md border-0 px-3 py-2 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+              >
+                <option>Puesto #1</option>
+                <option>Puesto #2</option>
+                <option>Puesto #3</option>
+              </select>
+            </div>
+
+            <div class="col-span-10">
+              <div>
                 <label
-                  for="mobile-user-photo"
-                  class="pointer-events-none block rounded-md px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 peer-hover:ring-gray-400 peer-focus:ring-2 peer-focus:ring-sky-500"
+                  for="about"
+                  class="block text-sm font-medium leading-6 text-gray-900"
+                  >Sobre mi</label
                 >
-                  <span>Change</span>
-                  <span class="sr-only"> user photo</span>
-                </label>
+                <div class="mt-2">
+                  <textarea
+                    id="about"
+                    name="about"
+                    rows="3"
+                    class="mt-1 block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
+                  ></textarea>
+                </div>
+                <p class="mt-2 text-sm text-gray-500">
+                  Breve descripción sobre ti.
+                </p>
               </div>
             </div>
           </div>
-
-          <div class="relative hidden overflow-hidden rounded-full lg:block">
-            <img
-              class="relative h-40 w-40 rounded-full"
-              src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
-              alt=""
-            />
-            <label
-              for="desktop-user-photo"
-              class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100"
-            >
-              <span>Change</span>
-              <span class="sr-only"> user photo</span>
-              <input
-                type="file"
-                id="desktop-user-photo"
-                name="user-photo"
-                class="absolute inset-0 h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0"
-              />
-            </label>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-6 grid grid-cols-12 gap-6">
-        <div class="col-span-12 sm:col-span-6">
-          <label
-            for="first-name"
-            class="block text-sm font-medium leading-6 text-gray-900"
-            >First name</label
-          >
-          <input
-            type="text"
-            name="first-name"
-            id="first-name"
-            autocomplete="given-name"
-            class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-          />
-        </div>
-
-        <div class="col-span-12 sm:col-span-6">
-          <label
-            for="last-name"
-            class="block text-sm font-medium leading-6 text-gray-900"
-            >Last name</label
-          >
-          <input
-            type="text"
-            name="last-name"
-            id="last-name"
-            autocomplete="family-name"
-            class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-          />
-        </div>
-
-        <div class="col-span-12">
-          <label
-            for="url"
-            class="block text-sm font-medium leading-6 text-gray-900">URL</label
-          >
-          <input
-            type="text"
-            name="url"
-            id="url"
-            class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-          />
-        </div>
-
-        <div class="col-span-12 sm:col-span-6">
-          <label
-            for="company"
-            class="block text-sm font-medium leading-6 text-gray-900"
-            >Company</label
-          >
-          <input
-            type="text"
-            name="company"
-            id="company"
-            autocomplete="organization"
-            class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:text-sm sm:leading-6"
-          />
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Privacy section -->
-    <div class="divide-y divide-gray-200 pt-6">
-      <div class="mt-4 flex justify-end gap-x-3 px-4 py-4 sm:px-6">
-        <button
-          type="button"
-          class="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-          >Cancel</button
-        >
-        <button
-          type="submit"
-          class="inline-flex justify-center rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
-          >Save</button
-        >
-      </div>
+  <div class="divide-y divide-gray-200">
+    <div class="flex justify-end gap-x-3 py-4">
+      <button
+        type="submit"
+        class="inline-flex justify-center rounded-md bg-sky-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
+        >Guardar</button
+      >
     </div>
   </div>
 </DashboardLayout>
